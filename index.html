@@ -139,7 +139,7 @@
                     eventLabel: "Slide-" + (swiper.activeIndex + 1) // slide-1, slide-2, slide-3, etc.
                 }
                 console.log(event)
-                gtag("event", event.event.eventAction, {
+                gtag("event", event.eventAction, {
                     eventCategory: event.eventCategory,
                     eventLabel: event.eventLabel
                 })

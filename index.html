@@ -3,7 +3,18 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Blank HTML5</title>
+    <title>Genius</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YEDGR0RNL9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-YEDGR0RNL9');
+    </script>
+
     <style>
         .slide-1 {
             background-color: blueviolet;
@@ -122,13 +133,15 @@
 
             swiper.on('slideChange', function () {
 
-                //ga('send', 'event', {
-                console.log({
+                let event = {
                     eventCategory: 'Carousel',
                     eventAction: 'swipe',
                     eventLabel: "Slide-" + (swiper.activeIndex + 1) // slide-1, slide-2, slide-3, etc.
-                    //});
-
+                }
+                console.log(event)
+                gtag("event", event.event.eventAction, {
+                    eventCategory: event.eventCategory,
+                    eventLabel: event.eventLabel
                 })
             });
         });
